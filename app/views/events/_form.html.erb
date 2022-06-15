@@ -66,6 +66,25 @@
     <%= form.text_field :ticket_price %>
   </div>
 
+  Guides:
+  <ul>
+    <%= form.fields_for :guide do |guides_form| %>
+      <li>
+        <%= guides_form.label :Event_Type %>
+        <%= guides_form.text_field :event_type %>
+
+        <%= guides_form.label :Age %>
+        <%= guides_form.text_field :age %>
+
+        <%= guides_form.label :language %>
+        <%= guides_form.text_field :language %>
+        
+        <%= guides_form.label :content %>
+        <%= guides_form.text_field :content %>
+      </li>
+    <% end %>
+  </ul>
+
   <div>
     <%= form.submit %>
   </div>
