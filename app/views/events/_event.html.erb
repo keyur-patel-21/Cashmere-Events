@@ -7,7 +7,7 @@
           <img class="postcard__img" src="https://picsum.photos/1000/1000" alt="Image Title" />
         </a>
         <div class="postcard__text t-dark">
-          <h1 class="postcard__title blue"><%= link_to event.name %></h1>
+          <h1 class="postcard__title blue"><%= link_to event.name, event_path(event) %></h1>
           <div class="postcard__subtitle small">
             <time datetime="2020-05-25 12:00:00">
               <i class="fas fa-calendar-alt mr-2"></i><%= event.time %>
