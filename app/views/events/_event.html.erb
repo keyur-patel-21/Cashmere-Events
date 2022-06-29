@@ -4,7 +4,7 @@
     <% @events.each do |event| %>
       <article class="postcard light blue">
         <a class="postcard__img_link" href="#">
-          <img class="postcard__img" src="https://picsum.photos/1000/1000" alt="Image Title" />
+          <%= image_tag event.poster.variant(resize: "1008x552"), class: "postcard__img"%>
         </a>
         <div class="postcard__text t-dark">
           <h1 class="postcard__title blue"><%= link_to event.name, event_path(event) %></h1>

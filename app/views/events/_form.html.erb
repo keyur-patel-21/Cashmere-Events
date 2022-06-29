@@ -27,6 +27,14 @@
               <div class="row">
                 <div class="col-md-12 mb-4">
                   <div class="form-outline">
+                    <%= form.file_field :poster, class:"form-control form-control-lg"  %>
+                    <label class="form-label" for="firstName">Upload an poster image of the Event</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 mb-4">
+                  <div class="form-outline">
                     <%= form.text_field :genre, class:"form-control form-control-lg"  %>
                     <label class="form-label" for="firstName">Event Genre</label>
                   </div>

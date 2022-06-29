@@ -62,6 +62,9 @@ Rails.application.configure do
   # Added Devise gem
   config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
 
+  # Store files locally.
+  config.active_storage.service = :local
+
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 

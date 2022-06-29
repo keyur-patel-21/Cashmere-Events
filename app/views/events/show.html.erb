@@ -2,10 +2,10 @@
 <div class = "d-flex">
   <div>
     <div class="jumbotron mt-5 container">
-      <h1 class="display-4"><%= @event.name %></h1>
+      <%= image_tag @event.poster.variant(resize: "1008x552") %>
       <p class="lead"><%= @event.description %></p>
       <hr class="my-4">
-      <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+      <p>It uses utility classes for typography and spacing to space content out within the larger container lorem500</p>
     </div>
   </div>
   <div>

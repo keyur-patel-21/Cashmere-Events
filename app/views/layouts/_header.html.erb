@@ -13,8 +13,9 @@
           <a class="nav-link active" aria-current="page" href="#">Today's Events</a>
         </li>
         <li class="nav-item">
-          <%# <button type="button" class="btn btn-dark border border-white">List Your Event</button> %>
-          <%= link_to "List Your Event", new_event_path, class:"btn btn-dark border border-white" %>
+          <% if user_signed_in? %>
+            <%= link_to "List Your Event", new_event_path, class:"btn btn-dark border border-white" %>
+          <% end %>
         </li>
       </ul>
       <div class="d-flex">
