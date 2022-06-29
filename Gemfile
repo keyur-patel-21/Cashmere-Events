@@ -74,3 +74,7 @@ end
 gem "devise", "~> 4.8"
 
 gem "sass-rails"
+gem "image_magick"
+gem "mini_magick"
+gem "image_processing", ">= 1.2"
+gem "ffmpeg"
