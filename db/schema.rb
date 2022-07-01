@@ -67,7 +67,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_29_111404) do
 
   create_table "events", force: :cascade do |t|
     t.string "name"
-    t.string "poster"
     t.string "genre"
     t.string "artist"
     t.string "description"
@@ -77,7 +76,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_29_111404) do
     t.string "city"
     t.date "date"
     t.time "time"
-    t.float "ticket_price"
+    t.integer "ticket_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

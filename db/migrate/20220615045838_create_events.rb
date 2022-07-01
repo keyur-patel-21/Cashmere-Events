@@ -11,7 +11,7 @@ class CreateEvents < ActiveRecord::Migration[7.0]
       t.string :city
       t.date :date
       t.time :time
-      t.float :ticket_price
+      t.integer :ticket_price
 
       t.timestamps
     end
