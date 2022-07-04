@@ -9,5 +9,5 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :events
-  post "checkout/create", to: "checkout#create"
+  post "checkout/create/:id", to: "checkout#create", as: "checkout_create"
 end

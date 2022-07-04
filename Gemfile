@@ -72,7 +72,7 @@ group :test do
 end
 
 gem "devise", "~> 4.8"
-
+gem "pry"
 gem "sass-rails"
 gem "image_magick"
 gem "mini_magick"
@@ -81,3 +81,4 @@ gem "ffmpeg"
 gem "mini_magick"
 gem "activeadmin"
 gem "stripe"
+gem "jquery-rails"
