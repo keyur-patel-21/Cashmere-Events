@@ -6,9 +6,7 @@ class CheckoutController < ApplicationController
 			customer: current_user.stripe_customer_id,
 			payment_method_types: ['card'],
 			line_items: [{
-				name: event.name,
-				amount: event.ticket_price,
-				currency: "inr",
+				price: event.stripe_price_id, 
 				quantity: 1
 			}],
 			mode: 'payment',

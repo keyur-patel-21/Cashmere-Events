@@ -11,7 +11,7 @@ class Event < ApplicationRecord
   after_create do
     event = Stripe::Product.create(name: name)
     price = Stripe::Price.create(product: event, unit_amount: ticket_price, currency: "inr")
-    update(stripe_event_id: event.id)
+    update(stripe_event_id: event.id, stripe_price_id: price.id)
   end
 end
   
