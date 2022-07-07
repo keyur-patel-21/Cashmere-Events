@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_04_120608) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_07_053346) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -79,6 +79,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_04_120608) do
     t.integer "ticket_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "stripe_event_id"
   end
 
   create_table "guides", force: :cascade do |t|
