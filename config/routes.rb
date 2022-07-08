@@ -13,4 +13,7 @@ Rails.application.routes.draw do
 
   get "success", to: "checkout#success"
   get "cancel", to: "checkout#cancel"
+
+  post "events/add_to_cart/:id", to: "events#add_to_cart", as: "add_to_cart"
+  delete "events/remove_from_cart/:id", to: "events#remove_from_cart", as: "remove_from_cart"
 end

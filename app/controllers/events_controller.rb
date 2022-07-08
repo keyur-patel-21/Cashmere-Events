@@ -1,6 +1,18 @@
 class EventsController < ApplicationController
   before_action :set_event, only: %i[ show edit update destroy ]
 
+  def add_to_cart
+    id = params[:id].to_i
+    session[:cart] << id unless session[:cart].include?(id)
+    redirect_to events_path
+  end
+
+  def remove_from_cart
+    id = params[:id].to_i
+    session[:cart].delete(id)
+    redirect_to events_path
+  end
+
   # GET /events or /events.json
   def index
     @events = Event.all
