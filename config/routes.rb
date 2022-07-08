@@ -7,9 +7,11 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "pages#index"
 
+  get "cart", to: "pages#cart"
+
   devise_for :users
   resources :events
-  post "checkout/create/:id", to: "checkout#create", as: "checkout_create"
+  post "checkout/create", to: "checkout#create", as: "checkout_create"
 
   get "success", to: "checkout#success"
   get "cancel", to: "checkout#cancel"

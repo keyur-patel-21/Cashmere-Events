@@ -1,0 +1,9 @@
+<h1>Your Cart</h1>
+<% @cart.each do |event| %>
+  <%= event.name %>
+  <br>
+<%end%>
+
+<% if @cart.present? %>
+  <%= button_to "Pay Now!!", checkout_create_path, remote: true, data: { disable_with: "validating..."}  %>
+<% end %>
