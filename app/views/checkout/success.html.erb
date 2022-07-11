@@ -5,3 +5,10 @@ Checkout Status: <%= @session_with_expand.payment_status %>
 Ammount Paid: 
 <%= @session_with_expand.amount_total/100.to_f %>
 <%= @session_with_expand.currency %>
+
+<% @session_with_expand.line_items.data.each do |line_item| %>
+  <% event = Event.find_by(stripe_event_id: line_item.price.product) %>
+  <br>
+  <%= event.name %>
+<% end %>
+			

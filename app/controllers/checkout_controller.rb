@@ -15,9 +15,12 @@ class CheckoutController < ApplicationController
   end
 
 	def success
-		@session_with_expand = Stripe::Checkout::Session.retrieve({ id: params[:session_id], expand: ["line_items"]})
-		@session_with_expand.line_items.data.each do |line_item|
-			event = Event.find_by(stripe_event_id: line_item.price.product)
+		if params[:session_id].present?
+			session[:cart] = [] # empty cart = empty array
+			@session_with_expand = Stripe::Checkout::Session.retrieve({ id: params[:session_id], expand: ["line_items"]})
+			
+		else
+			redirect_to cancel_url, alert: "No info to display."
 		end
 	end
 
