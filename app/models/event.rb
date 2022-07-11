@@ -20,5 +20,11 @@ class Event < ApplicationRecord
     price = Stripe::Price.create(product: event, unit_amount: ticket_price, currency: "inr")
     update(stripe_event_id: event.id, stripe_price_id: price.id)
   end
+
+  after_update :create_and_assign_new_stripe_price, if: :saved_change_to_ticket_price?
+  def create_and_assign_new_stripe_price 
+    price = Stripe::Price.create(product: self.stripe_event_id, unit_amount: self.ticket_price, currency: "inr")
+    update(stripe_price_id: price.id)
+  end
 end
   
