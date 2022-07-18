@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  load_and_authorize_resource
+
   before_action :set_event, only: %i[ show edit update destroy ]
 
   def add_to_cart

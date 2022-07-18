@@ -28,5 +28,10 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/blob/develop/docs/define_check_abilities.md
+    if user.has_role? :admin
+      can :manage, :all
+    else
+      can :read, :all
+    end
   end
 end
