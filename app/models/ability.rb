@@ -32,6 +32,8 @@ class Ability
       can :manage, :all
     else
       can :read, :all
+      can :add_to_cart, Event
+      can :remove_from_cart, Event
     end
   end
 end
