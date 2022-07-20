@@ -16,6 +16,8 @@
           <% if user_signed_in? %>
             <% if current_user.has_role? :admin %>
               <%= link_to "List Your Event", new_event_path, class:"btn btn-dark border border-white" %>
+            <% elsif %>
+              <%= link_to "cart", cart_path, class:"nav-link active" %>
             <% end %>
           <% end %>
         </li>

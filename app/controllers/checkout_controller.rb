@@ -15,6 +15,7 @@ class CheckoutController < ApplicationController
   end
 
 	def success
+		session[:cart] = []
 		@session_with_expand = Stripe::Checkout::Session.retrieve({ id: params[:session_id], expand: ["line_items"]})
 		@session_with_expand.line_items.data.each do |line_item|
 			event = Event.find_by(stripe_event_id: line_item.price.product)
