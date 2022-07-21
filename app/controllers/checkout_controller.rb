@@ -19,13 +19,12 @@ class CheckoutController < ApplicationController
 		if params[:session_id].present?
 			session[:cart] = [] # empty cart = empty array
 			@session_with_expand = Stripe::Checkout::Session.retrieve({ id: params[:session_id], expand: ["line_items"]})
-			
+			UserMailer.payment_email(current_user).deliver_now
 		else
 			redirect_to cancel_url, alert: "No info to display."
 		end
 	end
 
 	def cancel
-
 	end
 end
