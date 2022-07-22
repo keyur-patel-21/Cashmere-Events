@@ -6,7 +6,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "pages#index"
-
+  get "free_event", to:"pages#free_event"
+  get "today_event", to:"pages#today_event"
   get "cart", to: "pages#cart"
 
   devise_for :users

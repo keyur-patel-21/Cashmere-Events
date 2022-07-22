@@ -8,4 +8,12 @@ class PagesController < ApplicationController
 
   def create
   end
+
+  def free_event
+    @events = Event.where("ticket_price = 0")
+  end
+
+  def today_event
+    @events = Event.where(date: Date.today)
+  end
 end
