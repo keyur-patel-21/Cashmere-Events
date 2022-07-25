@@ -8,6 +8,13 @@ Rails.application.routes.draw do
   root "pages#index"
   get "free_event", to:"pages#free_event"
   get "today_event", to:"pages#today_event"
+  get "all_event", to:"pages#all_event"
+  get "volunteer_event", to:"pages#volunteer_event"
+  get "health_event", to:"pages#health_event"
+  get "course_event", to:"pages#course_event"
+  get "theatre_event", to:"pages#theatre_event"
+  get "dance_event", to:"pages#dance_event"
+  get "workshop_event", to:"pages#workshop_event"
   get "cart", to: "pages#cart"
 
   devise_for :users

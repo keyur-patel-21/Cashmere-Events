@@ -13,25 +13,30 @@
           <%= link_to "Today's Events", today_event_path, class:"nav-link active" %>
         </li>
         <li class="nav-item">
+          <%= link_to "All Events", all_event_path, class:"nav-link active" %>
+        </li>
+        <li class="nav-item">
           <% if user_signed_in? %>
-            <% if current_user.has_role? :admin %>
-              <%= link_to "List Your Event", new_event_path, class:"btn btn-dark border border-white" %>
-            <% elsif %>
-              <%= link_to "cart", cart_path, class:"nav-link active" %>
-            <% end %>
+            <%= link_to "cart", cart_path, class:"nav-link active" %>
           <% end %>
         </li>
       </ul>
-      <div class="d-flex">
-        <% if user_signed_in? %>
-          <p class="text-light bg-dark"><%= current_user.email %></p>
-          <p class="text-light bg-dark"><%= current_user.roles.pluck(:name) %></p>
-          <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class:"btn btn-dark border border-white"%>
-        <% else %>
-          <%= link_to "Sign In", new_user_session_path, class:"btn btn-dark border border-white" %>
-          <%= link_to "Sign Up", new_user_registration_path, class:"btn btn-dark border border-white" %>
-        <% end %>
-      </div>
+      <% if user_signed_in? %>
+        <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <%= current_user.first_name%> <%= current_user.last_name%>
+          </a>
+          <ul class="dropdown-menu">
+            <% if current_user.has_role? :admin %>
+              <li><%= link_to "List Your Event", new_event_path, class:"dropdown-item" %></li>
+            <% end %>
+            <li><hr class="dropdown-divider"></li>
+            <li><%= button_to "Sign Out", destroy_user_session_path, method: :delete, class:"dropdown-item"%></li>
+          </ul>
+        </div>
+      <% else %>
+        <%= link_to "Sign In", new_user_session_path, class:"nav-item" %>
+      <% end %>
     </div>
   </div>
 </nav>
