@@ -14,7 +14,7 @@
             </time>
           </div>
           <div class="postcard__bar"></div>
-          <div class="postcard__preview-txt"><%= event.description %></div>
+          <div class="postcard__preview-txt"><%= event.description.truncate_words(25) %></div>
           <ul class="postcard__tagbox">
             <li class="tag__item"><i class="fas fa-tag mr-2"></i><%= event.venue %></li>
           </ul>
