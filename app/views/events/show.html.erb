@@ -1,0 +1,50 @@
+<p style="color: green"><%= notice %></p>
+<div class = "d-flex">
+  <div>
+    <div class="jumbotron mt-5 container">
+      <%= image_tag @event.poster.variant(resize: "1008x552") %>
+      <hr class="my-4">
+      <p class="lead"><%= @event.description %></p>
+    </div>
+  </div>
+  <div>
+    <div class="mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%= @event.name %></h5>
+          <p class="card-text">Genre: <%= @event.genre %></p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Date: <%= @event.date %></li>
+          <li class="list-group-item">Time:<%= @event.time %></li>
+          <li class="list-group-item">Venue: <%= @event.venue %></li>
+          <li class="list-group-item">City: <%= @event.city  %></li>
+        </ul>
+        <div class="card-body d-flex justify-content-between align-items-center">
+          <h4>₹<%= (@event.ticket_price/100).to_f %></h4>
+          <% if current_user.has_role? :admin %>
+            <%= link_to "Edit Event", edit_event_path, class:"btn btn-info" %>
+          <% end %>
+          <% if @cart.include?(@event) %>
+            <%= link_to "Remove from Cart",remove_from_cart_path(@event), method: :delete, class:"btn btn-danger" %>
+          <% else %>
+            <%= link_to "Add to Cart",add_to_cart_path(@event), method: :post, class:"btn btn-danger" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Events Guide</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Event Type:<%= @event.guide.event_type %></li>
+          <li class="list-group-item">Recomended Age:<%= @event.guide.age %></li>
+          <li class="list-group-item">Language: <%= @event.guide.language %></li>
+          <li class="list-group-item">Content: <%= @event.guide.content  %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

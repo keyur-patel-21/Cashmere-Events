@@ -1,0 +1,176 @@
+<section class="gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col-12 col-lg-9 col-xl-7">
+        <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+          <div class="card-body p-4 p-md-5">
+            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Create your Own Event</h3>
+            <%= form_with(model: event) do |form| %>
+              <% if event.errors.any? %>
+                <div style="color: red">
+                  <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+                  <ul>
+                    <% event.errors.each do |error| %>
+                      <li><%= error.full_message %></li>
+                    <% end %>
+                  </ul>
+                </div>
+              <% end %>
+              <div class="row">
+                <div class="col-md-12 mb-4">
+                  <div class="form-outline">
+                    <%= form.text_field :name, class:"form-control form-control-lg"  %>
+                    <label class="form-label" for="firstName">Event Name</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 mb-4">
+                  <div class="form-outline">
+                    <%= form.text_field :category, class:"form-control form-control-lg"  %>
+                    <label class="form-label" for="firstName">Event Category</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 mb-4">
+                  <div class="form-outline">
+                    <%= form.file_field :poster, class:"form-control form-control-lg"  %>
+                    <label class="form-label" for="firstName">Upload an poster image of the Event</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 mb-4">
+                  <div class="form-outline">
+                    <%= form.text_field :genre, class:"form-control form-control-lg"  %>
+                    <label class="form-label" for="firstName">Event Genre</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 mb-4">
+                  <div class="form-outline">
+                    <%= form.text_field :artist, class:"form-control form-control-lg"  %>
+                    <label class="form-label" for="firstName">Event Artist</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 mb-4">
+                  <div class="form-outline">
+                    <%= form.text_field :description, class:"form-control form-control-lg"  %>
+                    <label class="form-label" for="firstName">Event Description</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 mb-4">
+                  <div class="form-outline">
+                    <%= form.text_field :frequency, class:"form-control form-control-lg"  %>
+                    <label class="form-label" for="firstName">Event Frequency</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 mb-4">
+                  <div class="form-outline">
+                    <%= form.text_field :platform, class:"form-control form-control-lg"  %>
+                    <label class="form-label" for="firstName">Event Platform</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 mb-4">
+                  <div class="form-outline">
+                    <%= form.text_field :venue, class:"form-control form-control-lg"  %>
+                    <label class="form-label" for="firstName">Event Venue</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 mb-4">
+                  <div class="form-outline">
+                    <%= form.text_field :city, class:"form-control form-control-lg"  %>
+                    <label class="form-label" for="firstName">City</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 mb-4">
+                  <div class="form-outline">
+                    <%= form.date_field :date, class:"form-control form-control-lg"  %>
+                    <label class="form-label" for="firstName">Event Date</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 mb-4">
+                  <div class="form-outline">
+                    <%= form.time_field :time, class:"form-control form-control-lg"  %>
+                    <label class="form-label" for="firstName">Timing</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 mb-4">
+                  <div class="form-outline">
+                    <%= form.text_field :ticket_price, class:"form-control form-control-lg"  %>
+                    <label class="form-label" for="firstName">Ticket Price</label>
+                  </div>
+                </div>
+              </div>
+              <!--form for Event's Guide.-->
+              <hr>
+              <h3>Events's Guide</h3>
+              <hr>
+              <%= form.fields_for :guide do |guides_form| %>
+                <div class="row">
+                  <div class="col-md-12 mb-4">
+                    <div class="form-outline">
+                      <%= guides_form.text_field :event_type, class:"form-control form-control-lg"  %>
+                      <label class="form-label" for="firstName">Event Type</label>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+              <%= form.fields_for :guide do |guides_form| %>
+                <div class="row">
+                  <div class="col-md-12 mb-4">
+                    <div class="form-outline">
+                      <%= guides_form.text_field :age, class:"form-control form-control-lg"  %>
+                      <label class="form-label" for="firstName">Recomended age</label>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+              <%= form.fields_for :guide do |guides_form| %>
+                <div class="row">
+                  <div class="col-md-12 mb-4">
+                    <div class="form-outline">
+                      <%= guides_form.text_field :language, class:"form-control form-control-lg"  %>
+                      <label class="form-label" for="firstName">Language</label>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+              <%= form.fields_for :guide do |guides_form| %>
+                <div class="row">
+                  <div class="col-md-12 mb-4">
+                    <div class="form-outline">
+                      <%= guides_form.text_field :content, class:"form-control form-control-lg"  %>
+                      <label class="form-label" for="firstName">Content</label>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+              <div class="mt-4 pt-2">
+                <%= form.submit %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
