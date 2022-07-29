@@ -17,10 +17,6 @@ class PagesController < ApplicationController
     @events = Event.where(date: Date.today)
   end
 
-  def all_event
-    @events = Event.all
-  end
-
   def volunteer_event
     @events = Event.where(category: "volunteer")
   end

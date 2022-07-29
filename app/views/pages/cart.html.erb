@@ -7,12 +7,14 @@
           <h3 class="fw-normal mb-0 text-black">Shopping Cart</h3>
         </div>
 
-        <% if @cart.empty? %>
-          <div>
-            <h6>There is nothing in your cart!! </h6>
-          </div> 
-          <p> Go and Explore latest Events in your City!!</p>
-        <% end %>
+        <div style="height: 100vh;">
+          <% if @cart.empty? %>
+            <div>
+              <h6>There is nothing in your cart!! </h6>
+            </div> 
+            <p> Go and Explore latest Events in your City!!</p>
+          <% end %>
+        </div>
 
         <% @cart.each do |event| %>
           <div class="card rounded-3 mb-4">

@@ -7,8 +7,8 @@ class Event < ApplicationRecord
     update(stripe_event_id: event.id, stripe_price_id: price.id)
   end
 
-  validates :category, presence: true
-  
+  searchkick
+
   has_one_attached :poster
   has_one :guide, dependent: :destroy
   accepts_nested_attributes_for :guide
