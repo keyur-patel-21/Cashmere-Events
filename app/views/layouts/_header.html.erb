@@ -13,7 +13,7 @@
           <%= link_to "Today's Events", today_event_path, class:"nav-link active" %>
         </li>
         <li class="nav-item">
-          <%= link_to "All Events", all_event_path, class:"nav-link active" %>
+          <%= link_to "All Events", events_path, class:"nav-link active" %>
         </li>
         <li class="nav-item">
           <% if user_signed_in? %>
@@ -21,6 +21,10 @@
           <% end %>
         </li>
       </ul>
+       <%= form_tag(events_path, method: :get, class:"form-inline my-2 my-lg-0") do %>
+          <%= text_field_tag :search_query, params[:search_query] %>
+          <%= submit_tag ("Search"), class:"btn btn-outline-success my-2 my-sm-0" %>
+       <% end %>
       <% if user_signed_in? %>
         <div class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

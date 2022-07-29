@@ -17,7 +17,12 @@ class EventsController < ApplicationController
 
   # GET /events or /events.json
   def index
-    @events = Event.all
+    if params[:search_query] 
+      @q = params.fetch(:search_query)
+      @events = Event.search(@q, fields: ['name', 'genre', 'artist', 'venue', 'city'])
+    else
+      @events = Event.all
+    end
   end
 
   # GET /events/1 or /events/1.json
@@ -81,6 +86,6 @@ class EventsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def event_params
-    params.require(:event).permit(:poster, :name, :category, :genre, :artist, :description, :frequency, :platform, :venue, :city, :date, :time, :ticket_price, guide_attributes: [:event_type, :age, :language, :content])
+    params.require(:event).permit(:search_query,  :poster, :name, :category, :genre, :artist, :description, :frequency, :platform, :venue, :city, :date, :time, :ticket_price, guide_attributes: [:event_type, :age, :language, :content])
   end
 end
