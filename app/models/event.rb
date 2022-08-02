@@ -9,6 +9,8 @@ class Event < ApplicationRecord
 
   searchkick
 
+  validates :category, presence: true
+
   has_one_attached :poster
   has_one :guide, dependent: :destroy
   accepts_nested_attributes_for :guide
