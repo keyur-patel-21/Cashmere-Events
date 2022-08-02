@@ -1,10 +1,12 @@
-<div style="height: 100vh;">
-  <% if not @cart %>
+<% if  @events.blank? %>
+  <div class="container" style="height: 100vh;">
     <div>
-      <h6>There is no Event for Today!! </h6>
+      <h6>There is no event for today!! </h6>
     </div> 
-      <p> Go and Explore latest Events in your City!!</p>
-  <% end %>
- </div>
-<%= render "events/event" %>
-  
+    <p> We are sorry for that ! Please try Tomorrow!!</p>
+  </div>
+<% else %>
+  <div style="height: 100vh;">
+    <%= render "events/event" %>
+  </div>
+<% end %>
