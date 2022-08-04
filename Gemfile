@@ -90,3 +90,5 @@ gem "elasticsearch", "< 7.14"
 gem "elasticsearch-rails", "~> 7.2"
 gem "elasticsearch-model", "~> 7.1"
 gem "elasticsearch-persistence", "~> 5.0"
+
+gem "kaminari"

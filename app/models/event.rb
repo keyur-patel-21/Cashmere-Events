@@ -8,6 +8,7 @@ class Event < ApplicationRecord
   end
 
   searchkick
+  paginates_per 10
 
   validates :category, presence: true
 

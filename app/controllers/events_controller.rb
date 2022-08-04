@@ -21,7 +21,7 @@ class EventsController < ApplicationController
       @q = params.fetch(:search_query)
       @events = Event.search(@q, fields: ['name', 'genre', 'artist', 'venue', 'city'])
     else
-      @events = Event.all
+      @events = Event.all.page(params[:page])
     end
   end
 
