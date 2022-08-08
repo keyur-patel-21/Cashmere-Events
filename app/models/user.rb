@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   rolify
+  
+  after_create :assign_default_role
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -15,7 +17,11 @@ class User < ApplicationRecord
   end
 
   # To add default role to new signed_up users
-  after_create do
-    self.add_role(:newuser) if self.roles.blank?
+  def assign_default_role
+    if AdminUser.find_by(email: self.email)
+      self.add_role(:admin)
+    else
+      self.add_role(:newuser)
+    end
   end
 end
