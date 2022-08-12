@@ -4,10 +4,9 @@ class Event < ApplicationRecord
   after_create do
     event = Stripe::Product.create(name: name)
     price = Stripe::Price.create(product: event, unit_amount: ticket_price, currency: "inr")
-    update(stripe_event_id: event.id, stripe_price_id: price.id)
+    # update(stripe_event_id: event.id, stripe_price_id: price.id)
   end
 
-  searchkick
   paginates_per 10
 
   validates :category, presence: true
@@ -16,6 +15,17 @@ class Event < ApplicationRecord
   has_one :guide, dependent: :destroy
   accepts_nested_attributes_for :guide
   
+  include PgSearch::Model
+  pg_search_scope :search_query, against: [:name, :genre, :artist, :venue, :city], using: {tsearch: {prefix: true}}
+  
+  def self.text_search(query)
+    if query.present?
+      search_query(query)
+    else
+      scoped
+    end
+  end
+
   def to_s
     name
   end
