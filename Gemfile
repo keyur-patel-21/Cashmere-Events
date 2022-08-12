@@ -84,11 +84,5 @@ gem "stripe"
 gem "jquery-rails"
 gem "rolify"
 gem "cancancan"
-
-gem "searchkick"
-gem "elasticsearch", "< 7.14"
-gem "elasticsearch-rails", "~> 7.2"
-gem "elasticsearch-model", "~> 7.1"
-gem "elasticsearch-persistence", "~> 5.0"
-
+gem "pg_search"
 gem "kaminari"

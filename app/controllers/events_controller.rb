@@ -18,9 +18,7 @@ class EventsController < ApplicationController
   # GET /events or /events.json
   def index
     if params[:search_query] 
-      @q = params.fetch(:search_query)
-      @events_array = Event.search(@q, fields: ['name', 'genre', 'artist', 'venue', 'city'])
-      @events = Kaminari.paginate_array(@events_array).page(params[:page]).per(5)
+      @events = Event.text_search(params[:search_query]).page(params[:page]).per(5)
     else
       @events = Event.all.page(params[:page])
     end
