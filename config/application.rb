@@ -20,5 +20,6 @@ module Cashmere
     # config.eager_load_paths << Rails.root.join("extras")
     config.active_storage.variant_processor = :mini_magick
     config.assets.initialize_on_precompile = false
+    config.active_job.queue_adapter = :sidekiq
   end
 end

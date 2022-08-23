@@ -89,3 +89,5 @@ gem "kaminari"
 
 gem "phonelib"
 gem "twilio-ruby"
+
+gem "sidekiq"
