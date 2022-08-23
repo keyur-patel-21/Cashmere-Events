@@ -6,6 +6,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable, :confirmable
+  validates :phone_number, phone: true
   
   def to_s
     email

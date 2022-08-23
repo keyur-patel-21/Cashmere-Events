@@ -86,3 +86,6 @@ gem "rolify"
 gem "cancancan"
 gem "pg_search"
 gem "kaminari"
+
+gem "phonelib"
+gem "twilio-ruby"

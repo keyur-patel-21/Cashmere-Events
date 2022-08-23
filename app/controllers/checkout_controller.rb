@@ -20,6 +20,7 @@ class CheckoutController < ApplicationController
       session[:cart] = [] # empty cart = empty array
       @session_with_expand = Stripe::Checkout::Session.retrieve({ id: params[:session_id], expand: ["line_items"]})
       UserMailer.payment_email(current_user,@session_with_expand).deliver_now
+      TwilioClient.new.send_text(current_user, "Payment to Cashmere event is successful and your seat is booked")
     else
       redirect_to cancel_url, alert: "No info to display."
     end
