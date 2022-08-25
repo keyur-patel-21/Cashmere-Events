@@ -9,7 +9,7 @@
         <div class="postcard__text t-dark">
           <h1 class="postcard__title blue"><%= link_to event.name, event_path(event) %></h1>
           <div class="postcard__subtitle small">
-            <i class="fas fa-calendar-alt mr-2"></i><%= event.date.strftime("%e %B %Y") %> | <%= event.time.strftime("%l : %M  %p") %>
+            <i class="fas fa-calendar-alt mr-2"></i><%= event.time.strftime("%e %B %Y") %> | <%= event.time.strftime("%l : %M  %p") %>
           </div>
           <div class="postcard__bar"></div>
           <div class="postcard__preview-txt"><%= event.venue %>, <%= event.city %></div>
