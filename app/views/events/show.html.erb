@@ -15,8 +15,8 @@
           <p class="card-text"><span class="fw-bold">Genre :</span><%= @event.genre %></p>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"><span class="fw-bold">Date :</span> <%= @event.date %></li>
-          <li class="list-group-item"><span class="fw-bold">Time :</span><%= @event.time %></li>
+          <li class="list-group-item"><span class="fw-bold">Date :</span> <%= @event.time.strftime("%e %B %Y") %></li>
+          <li class="list-group-item"><span class="fw-bold">Time :</span><%= @event.time.strftime("%l : %M  %p") %></li>
           <li class="list-group-item"><span class="fw-bold">Venue :</span> <%= @event.venue %></li>
           <li class="list-group-item"><span class="fw-bold">City :</span><%= @event.city  %></li>
         </ul>
