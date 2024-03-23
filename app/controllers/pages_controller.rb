@@ -14,7 +14,7 @@ class PagesController < ApplicationController
   end
 
   def today_event
-    @events = Event.where(date: Date.today)
+    @events = Event.where("DATE(time) = ?", Date.today)
   end
 
   def volunteer_event
