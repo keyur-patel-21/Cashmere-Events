@@ -16,7 +16,9 @@ Rails.application.routes.draw do
   get "workshop_event", to:"pages#workshop_event"
   get "cart", to: "pages#cart"
 
-  devise_for :users
+  devise_for :users, controllers: {
+      sessions: 'sessions'
+  }
   resource :two_factor_settings, except: [:index, :show]
   get "profile", to:"users#profile"
   
