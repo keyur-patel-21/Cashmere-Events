@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get "cart", to: "pages#cart"
 
   devise_for :users
+  resource :two_factor_settings, except: [:index, :show]
   get "profile", to:"users#profile"
   
   resources :events
