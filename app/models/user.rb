@@ -1,10 +1,11 @@
 class User < ApplicationRecord
+  devise :two_factor_authenticatable
   rolify
   
   after_create :assign_default_role
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :registerable,
   :recoverable, :rememberable, :validatable, :confirmable
   validates :phone_number, phone: true
   
