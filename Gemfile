@@ -91,3 +91,9 @@ gem "phonelib"
 gem "twilio-ruby"
 
 gem "sidekiq"
+
+
+# For MFA
+gem 'devise-two-factor'
+gem 'rqrcode'
+gem 'simple_form'
